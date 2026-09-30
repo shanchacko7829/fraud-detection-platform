@@ -1,5 +1,7 @@
 # Real-Time Card Fraud Detection Platform
 
+![CI](https://github.com/shanchacko7829/fraud-detection-platform/actions/workflows/ci.yml/badge.svg)
+
 An end-to-end fraud detection system: a **point-in-time feature store**, an **imbalance-aware model with honest baselines**, a **low-latency scoring API that explains its decisions**, **drift monitoring**, and a **streaming simulator** - with tests and CI.
 
 The focus is the engineering around the model - avoiding train/serve skew, leakage-free evaluation, threshold selection by false-positive budget, idempotent scoring, and monitoring - because that is where most real fraud systems succeed or fail.
@@ -127,7 +129,7 @@ Kept in the README on purpose - these are the kinds of problems that matter.
 - **State is in process memory.** The API must run as a single worker. See below.
 - **Latency numbers** are from a small shared sandbox; treat them as order-of-magnitude.
 - `joblib` artifacts are pickles: only load models you trained yourself.
-- The Dockerfile and GitHub Actions workflow were written but not executed in the environment this was built in; the exact commands they run were.
+- The GitHub Actions workflow runs green on Python 3.10-3.12. The Dockerfile has not been tested end to end.
 
 ## Scaling out (what changes in production)
 
