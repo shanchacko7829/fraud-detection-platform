@@ -1,0 +1,207 @@
+{
+  "transactions": 30644,
+  "wall_seconds": 62.39,
+  "throughput_tps": 491.1,
+  "score_latency_ms": {
+    "p50": 1.664,
+    "p95": 2.706,
+    "p99": 12.45,
+    "max": 88.866
+  },
+  "decisions": {
+    "approve": 30158,
+    "review": 149,
+    "decline": 337
+  },
+  "alert_precision": 0.7058,
+  "fraud_recall": 0.9717,
+  "sample_alerts": [
+    {
+      "txn_id": "T0173855",
+      "amount": 3.65,
+      "true_type": "card_testing",
+      "risk_score": 0.97387,
+      "decision": "decline",
+      "reasons": [
+        {
+          "factor": "context",
+          "impact": 9.24,
+          "detail": "gambling purchase via ecom"
+        },
+        {
+          "factor": "device",
+          "impact": 5.83,
+          "detail": "device never seen on this account; device also used on 56 other accounts"
+        },
+        {
+          "factor": "time",
+          "impact": 1.57,
+          "detail": "transaction at 00:00 UTC"
+        }
+      ]
+    },
+    {
+      "txn_id": "T0173856",
+      "amount": 4.14,
+      "true_type": "card_testing",
+      "risk_score": 0.99932,
+      "decision": "decline",
+      "reasons": [
+        {
+          "factor": "context",
+          "impact": 16.84,
+          "detail": "digital_goods purchase via ecom"
+        },
+        {
+          "factor": "geo",
+          "impact": 4.81,
+          "detail": "implied travel speed 13,345 km/h since last transaction"
+        },
+        {
+          "factor": "velocity",
+          "impact": 2.35,
+          "detail": "1 transactions in the last 10 min (1 in the last hour, 1 merchants)"
+        }
+      ]
+    },
+    {
+      "txn_id": "T0174051",
+      "amount": 177.28,
+      "true_type": "account_takeover",
+      "risk_score": 0.32578,
+      "decision": "review",
+      "reasons": [
+        {
+          "factor": "context",
+          "impact": 7.11,
+          "detail": "travel purchase via ecom"
+        },
+        {
+          "factor": "device",
+          "impact": 6.71,
+          "detail": "device never seen on this account"
+        },
+        {
+          "factor": "amount",
+          "impact": 3.65,
+          "detail": "amount 177.28 is +1.8 std devs from this account's norm"
+        }
+      ]
+    },
+    {
+      "txn_id": "T0174082",
+      "amount": 216.3,
+      "true_type": "account_takeover",
+      "risk_score": 0.9894,
+      "decision": "decline",
+      "reasons": [
+        {
+          "factor": "context",
+          "impact": 13.76,
+          "detail": "crypto purchase via ecom"
+        },
+        {
+          "factor": "time",
+          "impact": 3.52,
+          "detail": "transaction at 05:00 UTC"
+        },
+        {
+          "factor": "geo",
+          "impact": 3.11,
+          "detail": "location unusual for this account"
+        }
+      ]
+    },
+    {
+      "txn_id": "T0177342",
+      "amount": 83.87,
+      "true_type": "low_and_slow",
+      "risk_score": 0.94009,
+      "decision": "decline",
+      "reasons": [
+        {
+          "factor": "context",
+          "impact": 12.3,
+          "detail": "electronics purchase via ecom"
+        },
+        {
+          "factor": "time",
+          "impact": 5.76,
+          "detail": "transaction at 01:00 UTC"
+        },
+        {
+          "factor": "geo",
+          "impact": 3.66,
+          "detail": "implied travel speed 721 km/h since last transaction"
+        }
+      ]
+    },
+    {
+      "txn_id": "T0177353",
+      "amount": 26.06,
+      "true_type": "low_and_slow",
+      "risk_score": 0.49594,
+      "decision": "review",
+      "reasons": [
+        {
+          "factor": "context",
+          "impact": 9.5,
+          "detail": "luxury purchase via ecom"
+        },
+        {
+          "factor": "time",
+          "impact": 1.85,
+          "detail": "transaction at 02:00 UTC"
+        }
+      ]
+    },
+    {
+      "txn_id": "T0179301",
+      "amount": 434.12,
+      "true_type": "atm_cashout",
+      "risk_score": 0.9515,
+      "decision": "decline",
+      "reasons": [
+        {
+          "factor": "context",
+          "impact": 12.23,
+          "detail": "atm_cash purchase via atm"
+        },
+        {
+          "factor": "amount",
+          "impact": 6.83,
+          "detail": "amount 434.12 is +2.5 std devs from this account's norm"
+        },
+        {
+          "factor": "geo",
+          "impact": 5.98,
+          "detail": "first transaction from this country; implied travel speed 629 km/h since last transaction"
+        }
+      ]
+    },
+    {
+      "txn_id": "T0179314",
+      "amount": 249.29,
+      "true_type": "atm_cashout",
+      "risk_score": 0.93526,
+      "decision": "decline",
+      "reasons": [
+        {
+          "factor": "context",
+          "impact": 11.9,
+          "detail": "atm_cash purchase via atm"
+        },
+        {
+          "factor": "amount",
+          "impact": 5.21,
+          "detail": "amount 249.29 is +1.6 std devs from this account's norm"
+        },
+        {
+          "factor": "velocity",
+          "impact": 4.79,
+          "detail": "1 transactions in the last 10 min (1 in the last hour, 1 merchants)"
+        }
+      ]
+    }
+  ]
+}

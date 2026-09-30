@@ -1,0 +1,123 @@
+{
+  "dataset": {
+    "rows": 204292,
+    "fraud_rate": 0.01139,
+    "train_rows": 112538,
+    "valid_rows": 30644,
+    "test_rows": 30644,
+    "test_fraud_rows": 353
+  },
+  "imbalance_strategy": {
+    "chosen": "sqrt",
+    "search": {
+      "none": {
+        "valid_pr_auc": 0.9625,
+        "trees": 102
+      },
+      "sqrt": {
+        "valid_pr_auc": 0.9632,
+        "trees": 93
+      },
+      "balanced": {
+        "valid_pr_auc": 0.9598,
+        "trees": 76
+      }
+    }
+  },
+  "comparison_test": {
+    "rules": {
+      "pr_auc": 0.8188,
+      "roc_auc": 0.9846,
+      "recall@0.1%fpr": 0.6969,
+      "recall@0.5%fpr": 0.762,
+      "recall@1%fpr": 0.8159,
+      "at_review_threshold": {
+        "threshold": 2.000354,
+        "alerts": 387,
+        "tp": 269,
+        "fp": 118,
+        "fn": 84,
+        "precision": 0.6951,
+        "recall": 0.762,
+        "fpr": 0.0039,
+        "amount_recall": 0.5168
+      }
+    },
+    "logistic_regression": {
+      "pr_auc": 0.9333,
+      "roc_auc": 0.998,
+      "recall@0.1%fpr": 0.8272,
+      "recall@0.5%fpr": 0.9292,
+      "recall@1%fpr": 0.9575,
+      "at_review_threshold": {
+        "threshold": 0.930335,
+        "alerts": 455,
+        "tp": 324,
+        "fp": 131,
+        "fn": 29,
+        "precision": 0.7121,
+        "recall": 0.9178,
+        "fpr": 0.00432,
+        "amount_recall": 0.8497
+      }
+    },
+    "gradient_boosting": {
+      "pr_auc": 0.9735,
+      "roc_auc": 0.9992,
+      "recall@0.1%fpr": 0.932,
+      "recall@0.5%fpr": 0.9717,
+      "recall@1%fpr": 0.9745
+    }
+  },
+  "operating_points_test": {
+    "review (validation FPR<=0.50%)": {
+      "threshold": 0.216597,
+      "alerts": 486,
+      "tp": 343,
+      "fp": 143,
+      "fn": 10,
+      "precision": 0.7058,
+      "recall": 0.9717,
+      "fpr": 0.00472,
+      "amount_recall": 0.959
+    },
+    "block (validation FPR<=0.050%)": {
+      "threshold": 0.688689,
+      "alerts": 337,
+      "tp": 320,
+      "fp": 17,
+      "fn": 33,
+      "precision": 0.9496,
+      "recall": 0.9065,
+      "fpr": 0.00056,
+      "amount_recall": 0.8774
+    }
+  },
+  "recall_by_typology_at_review": {
+    "account_takeover": {
+      "n": 68,
+      "recall": 0.9706
+    },
+    "atm_cashout": {
+      "n": 29,
+      "recall": 1.0
+    },
+    "card_testing": {
+      "n": 219,
+      "recall": 1.0
+    },
+    "low_and_slow": {
+      "n": 37,
+      "recall": 0.7838
+    }
+  },
+  "group_importance_mean_logodds_on_test_fraud": {
+    "context": 14.9,
+    "geo": 3.666,
+    "velocity": 2.858,
+    "device": 1.275,
+    "amount": 1.033,
+    "time": 0.613
+  },
+  "seconds": 11.8
+}

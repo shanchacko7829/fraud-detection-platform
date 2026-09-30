@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install -r requirements-dev.txt
+      - name: Unit and integration tests
+        run: make test
+      - name: End-to-end smoke (generate -> train -> stream a slice)
+        run: |
+          python -m frauddetect generate --n-legit 30000 --n-accounts 1000 --out data/smoke.csv.gz
+          python -m frauddetect train --data data/smoke.csv.gz --model models/smoke.joblib --report results/smoke_report.json
+          python -m frauddetect stream --data data/smoke.csv.gz --model models/smoke.joblib --max-rows 500 --out results/smoke_stream.json
+        env:
+          PYTHONPATH: src
